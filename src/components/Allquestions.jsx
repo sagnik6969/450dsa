@@ -26,7 +26,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
 // import app from "../firebase";
-export default function Feed(props) {
+export default function Allquestions(props) {
   // var [bgcolour, setbgcolour] = React.useState("#fff");
   var [Tabledata, setTabledata] = React.useState();
   var [docdata, setdocdata] = React.useState([]);
@@ -70,7 +70,7 @@ export default function Feed(props) {
                 data.length
               } problems solved`
             );
-            setdocdata(doc.data().solvedproblems) ;
+            setdocdata(doc.data().solvedproblems);
             // console.log("Current data: ", doc.data());
           } else {
             toast.error("Something went wrong");
@@ -85,10 +85,8 @@ export default function Feed(props) {
   React.useEffect(() => {
     setTabledata(
       data
-        .filter(
-          (e) =>
-            e.Topic === props.data &&
-            e.Problem.toLowerCase().includes(props.searchtext.toLowerCase())
+        .filter((e) =>
+          e.Problem.toLowerCase().includes(props.searchtext.toLowerCase())
         )
         .map((val, idx) => {
           return (

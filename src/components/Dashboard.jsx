@@ -4,7 +4,6 @@ import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -12,33 +11,15 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import DataArrayIcon from "@mui/icons-material/DataArray";
-import GridOnIcon from "@mui/icons-material/GridOn";
-import AbcIcon from "@mui/icons-material/Abc";
 import SearchIcon from "@mui/icons-material/Search";
-import ArrowRightAltIcon from "@mui/icons-material/ArrowRightAlt";
-import ParkIcon from "@mui/icons-material/Park";
-import TravelExploreIcon from "@mui/icons-material/TravelExplore";
-import CodeIcon from "@mui/icons-material/Code";
-import AcUnitIcon from "@mui/icons-material/AcUnit";
-import PatternIcon from "@mui/icons-material/Pattern";
-import StackedBarChartIcon from "@mui/icons-material/StackedBarChart";
-import LinearScaleIcon from "@mui/icons-material/LinearScale";
-import AccountTreeIcon from "@mui/icons-material/AccountTree";
-import FilterListIcon from "@mui/icons-material/FilterList";
-import FitbitIcon from "@mui/icons-material/Fitbit";
-import { Routes as Switch, Route, useNavigate } from "react-router-dom";
+import { Routes as Switch, Route, Navigate } from "react-router-dom";
 import InputBase from "@mui/material/InputBase";
-// import { IconButton } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { Tooltip } from "@mui/material";
-// import { Link } from "react-router-dom";
-// import Codeeditor from "./Codeeditor";
 import Feed from "./Feed";
-import { getAuth } from "firebase/auth";
+import Allquestions from "./Allquestions";
+import { Link } from "@mui/material";
+import Sidebar from "./Sidebar";
 
 const drawerWidth = 300;
 
@@ -150,23 +131,11 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 export default function Dashboard() {
-  const navigate = useNavigate();
   var [searchtext, setSearchtext] = React.useState("");
 
   // React.useEffect(() => {
-  //   const auth = getAuth();
-  //   auth.onAuthStateChanged((user) => {
-  //     if (!user) {
-  //       navigate("/signup");
-  //     } else {
-  //       // sessionStorage.setItem("user", user.uid);
-  //       navigate("/array");
-  //     }
-  //   });
+  //   navigate("/array");
   // }, []);
-  React.useEffect(() => {
-    navigate("/array");
-  }, []);
 
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -212,7 +181,9 @@ export default function Dashboard() {
           </Search>
           <Tooltip title="View sorce code">
             <IconButton
-              onClick={() => window.open("https://github.com/")}
+              onClick={() =>
+                window.open("https://github.com/sagnik6969/450dsa/")
+              }
               color="inherit"
               style={{ marginLeft: "1rem" }}
             >
@@ -232,208 +203,18 @@ export default function Dashboard() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        {/* <Link to="/matrix"> */}
-        <List
-          onClick={() => {
-            navigate("/array");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <DataArrayIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Array"} />
-          </ListItem>
-        </List>
-        {/* </Link> */}
 
-        <List
-          onClick={() => {
-            navigate("/matrix");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <GridOnIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Matrix"} />
-          </ListItem>
-        </List>
-        <List
-          onClick={() => {
-            navigate("/string");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <AbcIcon />
-            </ListItemIcon>
-            <ListItemText primary={"String"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/searching");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <SearchIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Searching & Sorting"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/linkedlist");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <ArrowRightAltIcon />
-            </ListItemIcon>
-            <ListItemText primary={"LinkedList"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/binarytree");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <ParkIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Binary Trees"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/binarysearchtree");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <TravelExploreIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Binary Search Trees"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/dynamicprogramming");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <CodeIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Dynamic Programming"} />
-          </ListItem>
-        </List>
-        <List
-          onClick={() => {
-            navigate("/greedy");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <AcUnitIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Greedy"} />
-          </ListItem>
-        </List>
-        <List
-          onClick={() => {
-            navigate("/backtracking");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <PatternIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Backtracking"} />
-          </ListItem>
-        </List>
-        <List
-          onClick={() => {
-            navigate("/stacks");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <StackedBarChartIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Stacks & Queues"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/heap");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <LinearScaleIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Heap"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/graph");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <AccountTreeIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Graph"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/trie");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <FilterListIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Trie"} />
-          </ListItem>
-        </List>
-
-        <List
-          onClick={() => {
-            navigate("/bitmanipulation");
-          }}
-        >
-          <ListItem button>
-            <ListItemIcon>
-              <FitbitIcon />
-            </ListItemIcon>
-            <ListItemText primary={"Bit Manipulation"} />
-          </ListItem>
-        </List>
+        <Sidebar />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* <Feed data="array" /> */}
         <Switch>
           <Route
             exact
-            path="/array"
+            path={"/array"}
             element={<Feed data="Array" searchtext={searchtext} />}
           ></Route>
+          <Route exact path={"/"} element={<Navigate to={"/array"} />}></Route>
           <Route
             path="/matrix"
             element={<Feed data="Matrix" searchtext={searchtext} />}
@@ -496,7 +277,28 @@ export default function Dashboard() {
             path="/bitmanipulation"
             element={<Feed data="Bit Manipulation" searchtext={searchtext} />}
           ></Route>
+          <Route
+            path="/allquestions"
+            element={<Allquestions searchtext={searchtext} />}
+          ></Route>
         </Switch>
+        <Typography
+          className="ml-auto mr-auto mt-auto"
+          variant="body2"
+          color="text.secondary"
+          align="center"
+          style={{
+            marginTop: "2rem",
+            marginBottom: "2rem",
+          }}
+        >
+          {"Copyright © "}
+          <Link color="inherit" href="https://twitter.com/sagnikjana2001">
+            Sagnik Jana
+          </Link>{" "}
+          {new Date().getFullYear()}
+          {"."}
+        </Typography>
       </Box>
     </Box>
   );
